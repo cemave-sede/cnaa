@@ -1,0 +1,28 @@
+{
+    "id": "2959B5F0",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1681777182255.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "id": "092beeb430e648c4be52e7c4d41dc857",
+        "name": "G2",
+        "title": "G2",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1681690567,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1681777182255,
+    "read_only": false,
+    "read_only_alternatives": []
+}

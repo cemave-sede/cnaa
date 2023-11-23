@@ -1,0 +1,4 @@
+"0","totais_localidades <- colSums(dados_cnaa_geral_localidades)
+"
+"2","Erro: objeto 'dados_cnaa_geral_localidades' não encontrado
+"

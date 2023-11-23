@@ -1,0 +1,6 @@
+"0","legend(5, 40, legend = c(""Ilha da Restinga"", ""Lagoa de Guaraíras""),
+       col = c(""darkorange"", ""cyan4""), lty = 1, cex = 0.8, box.lty = 0)
+"
+"2","Error in (function (s, units = ""user"", cex = NULL, font = NULL, vfont = NULL,  : 
+  plot.new has not been called yet
+"

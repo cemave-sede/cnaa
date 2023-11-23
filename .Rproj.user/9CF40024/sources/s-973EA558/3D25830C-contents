@@ -1,0 +1,63 @@
+library(DataExplorer)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+
+
+dados_monitora <- read_csv('dados/mamiferos_aves.csv')
+
+create_report(dados_monitora)
+
+dados_monitora$cnuc <- as.factor(dados_monitora$cnuc)
+dados_monitora$bioma <- as.factor(dados_monitora$bioma)
+dados_monitora$categ_UC <- as.factor(dados_monitora$categ_UC)
+dados_monitora$UC <- as.factor(dados_monitora$UC)
+dados_monitora$cnuc <- as.factor(dados_monitora$cnuc)
+dados_monitora$EA <- as.factor(dados_monitora$EA)
+dados_monitora$nome_EA <- as.factor(dados_monitora$nome_EA)
+dados_monitora$data_mostragem <- as.date(dados_monitora$data_amostragem)
+dados_monitora$ano <- as.factor(dados_monitora$ano)
+dados_monitora$estacao <- as.factor(dados_monitora$estacao)
+dados_monitora$tempo <- as.factor(dados_monitora$tempo)
+dados_monitora$coletores <- as.factor(dados_monitora$coletores)
+dados_monitora$numero_guia <- as.factor(dados_monitora$numero_guia)
+dados_monitora$classe <- as.factor(dados_monitora$classe)
+dados_monitora$ordem <- as.factor(dados_monitora$ordem)
+dados_monitora$familia <- as.factor(dados_monitora$familia)
+dados_monitora$genero <- as.factor(dados_monitora$genero)
+dados_monitora$especie <- as.factor(dados_monitora$especie)
+dados_monitora$especie_ICMBio <- as.factor(dados_monitora$especie_ICMBio)
+dados_monitora$classificacao_ICMBio <- as.factor(dados_monitora$classificacao_ICMBio)
+dados_monitora$numero_animais <- as.integer(dados_monitora$numero_animais)
+dados_monitora$tipo_contagem <- as.factor(dados_monitora$tipo_contagem)
+dados_monitora$problema_amostragem <- as.factor(dados_monitora$problema_amostragem)
+
+structure(dados_monitora)
+
+names(dados_monitora)
+
+unique(dados_monitora$bioma)
+unique(dados_monitora$cnuc)
+unique(dados_monitora$UC)
+
+G1 <- dados_monitora %>% 
+  group_by(UC, ano) %>%
+  summarise(numero_animais = n()) %>% 
+  
+ ggplot(aes(ano, numero_animais)) +
+    geom_point(group = "UC") +
+    geom_line()
+
+
+G1
+
+G2 <- dados_monitora %>%
+  drop_na() %>% 
+  filter(UC != "Parna") %>% 
+ 
+  ggplot(aes(distancia_trilha, numero_animais, color = UC)) +
+  geom_point()
+
+
+G2

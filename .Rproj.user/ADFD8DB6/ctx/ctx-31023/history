@@ -1,0 +1,512 @@
+#UC <-  readOGR("shapes/UC_fed_junho_2020.shp", verbose = FALSE)
+# mapa_cursos <- cursos %>% mutate(popup_info = paste ("Treinamento:", nome.curso, "<br/>", "Realizado em:", ano, "<br/>", "Local:", local.curso, "<br/>", "Cidade:", municipio, "<br/>","Estado:", UF, "<br/>", "Modalidade:", modalidade, "<br/>", "Duração em dias:", duracao.dias, "<br/>", "Carga Horária:", carga.horaria)) # criando uma coluna na tabela de dados com os dados que serão mostrados na janela popup
+dados_cnaa$latitude <- jitter(dados_cnaa$latitude, factor = 0.0001)
+dados_cnaa$longitude <- jitter(dados_cnaa$longitude, factor = 0.0001)
+mapa <- leaflet() %>%
+#Base groups
+setView(lng = -58, lat = -14,
+zoom = 4) %>%
+addProviderTiles(providers$Esri.WorldImagery, group = "Imágenes de ESRI") %>%
+addProviderTiles(providers$OpenStreetMap.Mapnik, group = "Open Street Map") %>%
+addProviderTiles(providers$Stamen.TonerLite, group = "Stamen Toner Lite") %>%
+# Overlay groups
+# addTiles() %>%
+addCircleMarkers(data = dados_cnaa,
+lat = ~latitude,
+lng = ~longitude,
+radius = ~3,
+group = "Amostragens",
+color = "darkblue",
+clusterOptions = markerClusterOptions()) %>%
+#popup = ~popup_info) %>% # inserindo a janela popup no código
+# addPolygons(data = UC,
+#         color = "#fc7303",
+#         weight = 1,
+#         group = "UC federal",
+#         popup = paste("Nome: ", UC$nome, "<br>",
+#                       "Ano de criação: ", UC$anoCriacao, "<br>",
+#                       "Área (ha): ", UC$areaHa, "<br>",
+#                       "UF: ", UC$UF, "<br>",
+#                       "Municípios: ", UC$municipios, "<br>",
+#                       "Bioma: ", UC$biomaIBGE, "<br>",
+#                       "CNUC: ", UC$codigoCnuc, "<br>")) %>%
+# Layers Control
+addLayersControl(
+baseGroups = c("OpenStreetMap",
+"Stamen Toner Lite",
+"Imágenes de ESRI"),
+overlayGroups = c("Amostragens"),
+options = layersControlOptions(collapsed = FALSE,
+autoZIndex = TRUE)) %>%
+addEasyButton(easyButton(
+icon="fa-globe", title="Zoom to Level 4",
+onClick=JS("function(btn, map){ map.setZoom(4); }")))
+# addEasyButton(easyButton(
+#   icon="fa-crosshairs", title="Locate Me",
+#   onClick=JS("function(btn, map){ map.locate({setView: true}); }")))
+mapa
+#UC <-  readOGR("shapes/UC_fed_junho_2020.shp", verbose = FALSE)
+# mapa_cursos <- cursos %>% mutate(popup_info = paste ("Treinamento:", nome.curso, "<br/>", "Realizado em:", ano, "<br/>", "Local:", local.curso, "<br/>", "Cidade:", municipio, "<br/>","Estado:", UF, "<br/>", "Modalidade:", modalidade, "<br/>", "Duração em dias:", duracao.dias, "<br/>", "Carga Horária:", carga.horaria)) # criando uma coluna na tabela de dados com os dados que serão mostrados na janela popup
+dados_cnaa$latitude <- jitter(dados_cnaa$latitude, factor = 0.0001)
+dados_cnaa$longitude <- jitter(dados_cnaa$longitude, factor = 0.0001)
+mapa <- leaflet() %>%
+#Base groups
+setView(lng = -58, lat = -14,
+zoom = 4) %>%
+addProviderTiles(providers$Esri.WorldImagery, group = "Imágenes de ESRI") %>%
+addProviderTiles(providers$OpenStreetMap.Mapnik, group = "Open Street Map") %>%
+addProviderTiles(providers$Stamen.TonerLite, group = "Stamen Toner Lite") %>%
+# Overlay groups
+# addTiles() %>%
+addCircleMarkers(data = dados_cnaa,
+lat = ~latitude,
+lng = ~longitude,
+radius = ~3,
+group = "Amostragens",
+color = "darkblue",
+jitter = 0,001,
+clusterOptions = markerClusterOptions()) %>%
+#popup = ~popup_info) %>% # inserindo a janela popup no código
+# addPolygons(data = UC,
+#         color = "#fc7303",
+#         weight = 1,
+#         group = "UC federal",
+#         popup = paste("Nome: ", UC$nome, "<br>",
+#                       "Ano de criação: ", UC$anoCriacao, "<br>",
+#                       "Área (ha): ", UC$areaHa, "<br>",
+#                       "UF: ", UC$UF, "<br>",
+#                       "Municípios: ", UC$municipios, "<br>",
+#                       "Bioma: ", UC$biomaIBGE, "<br>",
+#                       "CNUC: ", UC$codigoCnuc, "<br>")) %>%
+# Layers Control
+addLayersControl(
+baseGroups = c("OpenStreetMap",
+"Stamen Toner Lite",
+"Imágenes de ESRI"),
+overlayGroups = c("Amostragens"),
+options = layersControlOptions(collapsed = FALSE,
+autoZIndex = TRUE)) %>%
+addEasyButton(easyButton(
+icon="fa-globe", title="Zoom to Level 4",
+onClick=JS("function(btn, map){ map.setZoom(4); }")))
+#UC <-  readOGR("shapes/UC_fed_junho_2020.shp", verbose = FALSE)
+# mapa_cursos <- cursos %>% mutate(popup_info = paste ("Treinamento:", nome.curso, "<br/>", "Realizado em:", ano, "<br/>", "Local:", local.curso, "<br/>", "Cidade:", municipio, "<br/>","Estado:", UF, "<br/>", "Modalidade:", modalidade, "<br/>", "Duração em dias:", duracao.dias, "<br/>", "Carga Horária:", carga.horaria)) # criando uma coluna na tabela de dados com os dados que serão mostrados na janela popup
+dados_cnaa$latitude <- jitter(dados_cnaa$latitude, factor = 0.0001)
+dados_cnaa$longitude <- jitter(dados_cnaa$longitude, factor = 0.0001)
+mapa <- leaflet() %>%
+#Base groups
+setView(lng = -58, lat = -14,
+zoom = 4) %>%
+addProviderTiles(providers$Esri.WorldImagery, group = "Imágenes de ESRI") %>%
+addProviderTiles(providers$OpenStreetMap.Mapnik, group = "Open Street Map") %>%
+addProviderTiles(providers$Stamen.TonerLite, group = "Stamen Toner Lite") %>%
+# Overlay groups
+# addTiles() %>%
+addCircleMarkers(data = dados_cnaa,
+lat = ~latitude,
+lng = ~longitude,
+radius = ~3,
+group = "Amostragens",
+color = "darkblue",
+jitter = 0.001,
+clusterOptions = markerClusterOptions()) %>%
+#popup = ~popup_info) %>% # inserindo a janela popup no código
+# addPolygons(data = UC,
+#         color = "#fc7303",
+#         weight = 1,
+#         group = "UC federal",
+#         popup = paste("Nome: ", UC$nome, "<br>",
+#                       "Ano de criação: ", UC$anoCriacao, "<br>",
+#                       "Área (ha): ", UC$areaHa, "<br>",
+#                       "UF: ", UC$UF, "<br>",
+#                       "Municípios: ", UC$municipios, "<br>",
+#                       "Bioma: ", UC$biomaIBGE, "<br>",
+#                       "CNUC: ", UC$codigoCnuc, "<br>")) %>%
+# Layers Control
+addLayersControl(
+baseGroups = c("OpenStreetMap",
+"Stamen Toner Lite",
+"Imágenes de ESRI"),
+overlayGroups = c("Amostragens"),
+options = layersControlOptions(collapsed = FALSE,
+autoZIndex = TRUE)) %>%
+addEasyButton(easyButton(
+icon="fa-globe", title="Zoom to Level 4",
+onClick=JS("function(btn, map){ map.setZoom(4); }")))
+#UC <-  readOGR("shapes/UC_fed_junho_2020.shp", verbose = FALSE)
+# mapa_cursos <- cursos %>% mutate(popup_info = paste ("Treinamento:", nome.curso, "<br/>", "Realizado em:", ano, "<br/>", "Local:", local.curso, "<br/>", "Cidade:", municipio, "<br/>","Estado:", UF, "<br/>", "Modalidade:", modalidade, "<br/>", "Duração em dias:", duracao.dias, "<br/>", "Carga Horária:", carga.horaria)) # criando uma coluna na tabela de dados com os dados que serão mostrados na janela popup
+dados_cnaa$latitude <- jitter(dados_cnaa$latitude, factor = 0.01)
+dados_cnaa$longitude <- jitter(dados_cnaa$longitude, factor = 0.01)
+mapa <- leaflet() %>%
+#Base groups
+setView(lng = -58, lat = -14,
+zoom = 4) %>%
+addProviderTiles(providers$Esri.WorldImagery, group = "Imágenes de ESRI") %>%
+addProviderTiles(providers$OpenStreetMap.Mapnik, group = "Open Street Map") %>%
+addProviderTiles(providers$Stamen.TonerLite, group = "Stamen Toner Lite") %>%
+# Overlay groups
+# addTiles() %>%
+addCircleMarkers(data = dados_cnaa,
+lat = ~latitude,
+lng = ~longitude,
+radius = ~3,
+group = "Amostragens",
+color = "darkblue",
+clusterOptions = markerClusterOptions()) %>%
+#popup = ~popup_info) %>% # inserindo a janela popup no código
+# addPolygons(data = UC,
+#         color = "#fc7303",
+#         weight = 1,
+#         group = "UC federal",
+#         popup = paste("Nome: ", UC$nome, "<br>",
+#                       "Ano de criação: ", UC$anoCriacao, "<br>",
+#                       "Área (ha): ", UC$areaHa, "<br>",
+#                       "UF: ", UC$UF, "<br>",
+#                       "Municípios: ", UC$municipios, "<br>",
+#                       "Bioma: ", UC$biomaIBGE, "<br>",
+#                       "CNUC: ", UC$codigoCnuc, "<br>")) %>%
+# Layers Control
+addLayersControl(
+baseGroups = c("OpenStreetMap",
+"Stamen Toner Lite",
+"Imágenes de ESRI"),
+overlayGroups = c("Amostragens"),
+options = layersControlOptions(collapsed = FALSE,
+autoZIndex = TRUE)) %>%
+addEasyButton(easyButton(
+icon="fa-globe", title="Zoom to Level 4",
+onClick=JS("function(btn, map){ map.setZoom(4); }")))
+# addEasyButton(easyButton(
+#   icon="fa-crosshairs", title="Locate Me",
+#   onClick=JS("function(btn, map){ map.locate({setView: true}); }")))
+mapa
+restinga <- dados_cnaa %>%
+select(local == "Ilha da Restinga")
+library(tibble)
+restinga <- dados_cnaa %>%
+filter(local == "Ilha da Restinga")
+View(restinga)
+renderPlotly({
+G5 <- ggplot(restinga <- dados_cnaa %>%
+filter(local == "Ilha da Restinga"),
+aes(contagem, n_registros, group = especie)) +
+geom_point(aes()) +
+geom_line(aes()) +
+#ggtitle(input$UC) +
+scale_x_discrete(name = " ") +
+scale_y_continuous(name = " ") +
+#theme_minimal() +
+theme(
+panel.grid.minor.y = element_blank(),
+panel.grid.major.y = element_blank(),
+panel.grid.minor.x = element_blank(),
+panel.grid.major.x = element_blank(),
+legend.position = "bottom"
+)
+ggplotly(G5)
+})
+# renderDataTable({
+#      DT::datatable(dados_monitora1 %>%
+#      filter(str_detect(UC, ifelse(input$UC == 'Todas',"",input$UC))),
+#      options = list(lengthMenu = c(5, 10, 25), pageLength = 10))
+#
+#  })
+renderDataTable({
+datatable(dados_cnaa,
+caption = 'Tabela 1. Dados brutos do CNAA - 2020 a 2022.',
+#colnames = c('Ano', 'Nome do curso', 'Tema', 'Modalidade', 'Duração (dias)', 'Local', 'Município', 'UF',  'Nº Participantes', 'nº Alunos', 'Nº Instrutores', 'Nº Colaboradores'),
+extensions = 'Buttons',
+elementId = NULL,
+# extensions= "Scroller",
+style="bootstrap",
+class="stripe hover",
+width="80%",
+rownames = F,
+autoHideNavigation = T,
+escape =FALSE,
+filter = "top",
+options=list(deferRender=TRUE,
+pageLength = 15,
+scrollY=300,
+dom = 'Bfrtip',
+#buttons = c('copy', 'csv', 'excel', 'pdf')))
+buttons = list('copy', 'print', list(
+extend = 'collection',
+buttons = c('csv', 'excel'),
+text = 'Download'))))
+})
+#dados_monitora <- read_csv('dados/masto_aves_14_22.csv')
+dados_cnaa <- read_csv2('dados/cnaa.csv')
+glimpse(dados_cnaa)
+#dados_monitora <- read_csv('dados/masto_aves_14_22.csv')
+dados_cnaa <- read_csv2('dados/cnaa.csv')
+glimpse(dados_cnaa)
+renderPlotly({
+G5 <- ggplot(local <- dados_cnaa %>%
+filter(local == "Ilha da Restinga") %>%
+group_by(contagem) %>%
+summarise(n_registros = n()),
+aes(contagem, n_registros, group = especie)) +
+geom_point(aes()) +
+geom_line(aes()) +
+#ggtitle(input$UC) +
+scale_x_discrete(name = " ") +
+scale_y_continuous(name = " ") +
+#theme_minimal() +
+theme(
+panel.grid.minor.y = element_blank(),
+panel.grid.major.y = element_blank(),
+panel.grid.minor.x = element_blank(),
+panel.grid.major.x = element_blank(),
+legend.position = "bottom"
+)
+ggplotly(G5)
+})
+View(restinga)
+total <- dados_cnaa %>%
+#filter(local == "Ilha da Restinga") %>%
+group_by(contagem) %>%
+summarise(n_registros = n())
+View(total)
+total <- dados_cnaa %>%
+#filter(local == "Ilha da Restinga") %>%
+group_by(contagem) %>%
+summarise(soma = sum(n_registros))
+View(total)
+View(total)
+total <- dados_cnaa %>%
+#filter(local == "Ilha da Restinga") %>%
+group_by(ano, local) %>%
+summarise(soma = sum(n_registros))
+View(total)
+total_estacao <- dados_cnaa %>%
+#filter(local == "Ilha da Restinga") %>%
+group_by(ano, estacao) %>%
+summarise(soma = sum(n_registros))
+View(total_estacao)
+View(total)
+cnaa_especies <- dados_cnaa %>%
+group_by(especies, contagem) %>%
+summarise(n = n())
+cnaa_especie <- dados_cnaa %>%
+group_by(especie, contagem, local) %>%
+summarise(n = n())
+View(cnaa_especie)
+cnaa_especie <- dados_cnaa %>%
+group_by(especie, contagem, local) %>%
+summarise(soma = sum(n_registros))
+View(cnaa_especie)
+especies <- c(unique(dados_cnaa$especie), "Todas")
+especies
+View(cnaa_especie)
+cnaa_especie <- dados_cnaa %>%
+group_by(especie, contagem, local) %>%
+summarise(soma = sum(n_registros))
+View(cnaa_especie)
+especies <- c(unique(dados_cnaa$especie), "Todas")
+especies
+renderPlotly({
+G3 <- cnaa_especie %>%
+filter(str_detect(especies, if_else(input$especie == 'Todas', " ", input$especie))) %>%
+ggplot(aes(contagem, soma, color = "local")) +
+geom_point(aes(group = factor(local))) +
+geom_line(aes(group = factor(local))) +
+ggtitle(input$UC) +
+scale_x_discrete(name = " ") +
+scale_y_continuous(name = " ") +
+#theme_minimal() +
+theme(
+panel.grid.minor.y = element_blank(),
+panel.grid.major.y = element_blank(),
+panel.grid.minor.x = element_blank(),
+panel.grid.major.x = element_blank(),
+) +
+theme(legend.position="none")
+ggplotly(G3)
+})
+View(cnaa_especie)
+#dados_monitora <- read_csv('dados/masto_aves_14_22.csv')
+dados_cnaa <- read_csv2('dados/cnaa.csv')
+str(dados_cnaa)
+library(ggplot2)
+library(ggplot2)
+library(plotly)
+library(leaflet)
+library(flexdashboard)
+library(flexdashboard)
+library(DT)
+library(DT)
+library(mapview)
+library(tidyverse)
+library(mapview)
+library(tidyverse)
+library(tibble)
+library(tidyverse)
+library(tibble)
+library(rgdal)
+library(tibble)
+library(rgdal)
+library(sp)
+library(stringr)
+library(htmltools)
+library(htmlwidgets)
+library(tibble)
+#dados_monitora <- read_csv('dados/masto_aves_14_22.csv')
+dados_cnaa <- read_csv2('dados/cnaa.csv')
+View(dados_cnaa)
+cnaa_especie <- dados_cnaa %>%
+group_by(especie, contagem, local, imagem) %>%
+summarise(soma = sum(n_registros))
+View(cnaa_especie)
+imagens_ave <-
+tibble::tibble(
+cnaa_especie %>%
+filter(especie == input$especie) %>%
+top_n( 4, imagem)
+)
+View(cnaa_especie)
+imagens_ave <-
+tibble::tibble(
+cnaa_especie %>%
+filter(especie == input$especie) %>%
+top_n(1)
+)
+imagens_ave <-
+tibble::tibble(
+cnaa_especie %>%
+filter(especie == input$especie)
+# top_n(1)
+)
+imagens_ave <-
+tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea Alba")
+# top_n(1)
+)
+View(imagens_ave)
+imagens_ave <-
+tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea Alba") %>%
+top_n(1)
+)
+View(imagens_ave)
+imagens_ave <-
+tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea Alba") %>%
+top_n(1, imagem)
+)
+View(imagens_ave)
+imagens_ave <-
+tibble::tibble(
+dados_cnaa %>%
+filter(especie == "Ardea Alba") %>%
+top_n(1, imagem)
+)
+View(imagens_ave)
+imagens_ave <-
+tibble::tibble(
+dados_cnaa %>%
+filter(especie == "Ardea Alba")
+# top_n(1, imagem)
+)
+imagens_ave <-
+# tibble::tibble(
+dados_cnaa %>%
+filter(especie == "Ardea Alba")
+imagens_ave <-
+# tibble::tibble(
+dados_cnaa %>%
+filter(especie == "Ardea Alba")
+View(cnaa_especie)
+imagens_ave <-
+# tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba")
+View(imagens_ave)
+imagens_ave <-
+# tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba")
+imagens_ave <-
+# tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba")
+imagens_ave <-
+# tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba") %>%
+top_n(1)
+imagens_ave <-
+# tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba") %>%
+top_n(1)
+imagens_ave <-
+# tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba") %>%
+top_n(1, imagem)
+View(imagens_ave)
+imagens_ave <-
+# tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba")
+View(imagens_ave)
+#dados_monitora <- read_csv('dados/masto_aves_14_22.csv')
+dados_cnaa <- read_csv2('dados/cnaa.csv')
+#dados_monitora <- read_csv('dados/masto_aves_14_22.csv')
+dados_cnaa <- read_csv2('dados/cnaa.csv')
+View(dados_cnaa)
+View(imagens_ave)
+cnaa_especie <- dados_cnaa %>%
+group_by(especie, contagem, local, imagem) %>%
+summarise(soma = sum(n_registros))
+especies <- c(unique(dados_cnaa$especie), "Todas")
+especies
+View(cnaa_especie)
+imagens_ave <-
+# tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba")
+View(imagens_ave)
+url <- imagens_ave[ , 4]
+View(url)
+imagens_ave <-
+tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba") %>%
+top_n(1, imagem)
+)
+View(imagens_ave)
+url <- imagens_ave[ , 4]
+img(
+src = url,
+width = "45%"
+)
+imagens_ave <-
+tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba") %>%
+top_n(1)
+)
+imagens_ave <-
+tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba") %>%
+top_n(1, soma)
+)
+View(imagens_ave)
+url <- imagens_ave[ , 4]
+View(url)
+View(url)
+imagens_ave <-
+#tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba")
+imagens_ave <-
+#tibble::tibble(
+cnaa_especie %>%
+filter(especie == "Ardea alba")
+View(imagens_ave)
