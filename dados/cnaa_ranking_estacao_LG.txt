@@ -1,3 +1,0 @@
-	Ardea_cocoi	Ardea_alba	Bubulcus_ibis	Butorides_striata	Egretta_caerulea	Egretta_thula	Nyctanassa_violacea	Nycticorax_nycticorax	Vanellus_chilensis	Pluvialis_squatarola	Numenius_hudsonicus	Tringa_flavipes	Tringa_melanoleuca	Charadrius_collaris	Charadrius_semipalmatus	Tringa_semipalmata	Arenaria_interpres	Gelochelidon_nilotica	Actitis_macularia	Calidris_pusilla	Aramides_mangle	Limosa_haemastica	Limnodromus_griseus	Himantopus_melanurus
-LG_chuvosa	1	48	2	2	1307	265	4	1	19	34	95	3	3	2	199	2	14	19	0	0	18	0	0	7
-LG_seca	1	70	7	0	366	182	0	1	0	108	200	1	16	0	308	19	21	0	7	519	0	2	240	0

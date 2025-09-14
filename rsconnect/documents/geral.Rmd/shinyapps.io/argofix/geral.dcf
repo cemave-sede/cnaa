@@ -1,0 +1,13 @@
+name: geral
+title: geral
+username:
+account: argofix
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10642736
+bundleId: 7975889
+url: https://argofix.shinyapps.io/geral/
+when: 1701116134.63931
+lastSyncTime: 1701116134.63933
+asMultiple: FALSE
+asStatic: FALSE

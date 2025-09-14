@@ -1,0 +1,14 @@
+name: cnaa
+title: cnaa
+username:
+account: argofix
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10711249
+bundleId: 8004982
+url: https://argofix.shinyapps.io/cnaa/
+when: 1701699134.11788
+lastSyncTime: 1701699134.11789
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: style.css

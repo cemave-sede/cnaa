@@ -1,6 +1,0 @@
-"0","total_estacao <- dados_cnaa %>% 
-  #filter(local == ""Ilha da Restinga"") %>% 
-    group_by(estacao, local) %>% 
-    summarise(soma = sum(registros)) 
-"
-"2","`summarise()` has grouped output by 'estacao'. You can override using the `.groups` argument."
